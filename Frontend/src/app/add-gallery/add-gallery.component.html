@@ -1,0 +1,28 @@
+<nav-bar></nav-bar>
+<div style="margin-top:48px;" class="container">
+<div class='row'>
+    <div class="col-6 d-none d-sm-none d-md-block">
+         <img style="width:450px" class="img-fluid" src="https://thumbs.gfycat.com/ThunderousWaryEagle-size_restricted.gif" alt="">
+    </div>
+    <div style="margin-top:150px;" class='col-6'>
+        <form [formGroup]='addPostForm' (submit)='addPost()'>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Title</label>
+              <input type="text" formControlName="title" class="form-control" >
+            </div>
+            <div class="custom-file">
+                <input type="file" formControlName="file" (input)='fileChoosen($event)'  id="customFile">
+            </div>
+           
+              <div class="form-group">
+                <label for="exampleFormControlTextarea2">Description</label>
+                <textarea class="form-control rounded-0" formControlName="desc" rows="3"></textarea>
+              </div>
+           
+            
+           
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+    </div>
+</div>
+</div>

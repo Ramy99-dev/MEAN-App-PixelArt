@@ -1,0 +1,77 @@
+<nav-bar></nav-bar>
+
+
+<div fullpage id="fullpage" (ref)="getRef($event)">
+    <particles id="particles" [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
+    <div class="section s1">
+        <div class="d-flex justify-content-center">
+            <img style="width:270px" src="../../assets/logo.gif" alt="">
+        </div>
+        <div class="text-center">
+            <p style="color:white;font-weight:bold">Developed By : Ramy Chargui 🌟</p>
+        </div>
+        <div class="text-center">
+            <img style="width:70px" src="../../assets/scroll.gif" class="rounded mt-3">
+        </div>
+    </div>
+    <div class="section" (click)="fullpage_api.moveSectionDown()">
+        <div class="row">
+            <div style="margin-top:100px" class="col-md-7 col-sm-12 ">
+                <p class="text-center text">Pixel art is a form of digital art, created through the use of software,
+                    where images are edited on the pixel level. The aesthetic for this kind of graphics comes from 8-bit
+                    and 16-bit computers and video game consoles, in addition to other limited systems such as graphing
+                    calculators. In most pixel art, the color palette used is extremely limited in size, with some pixel
+                    art using only two colors.
+
+                    Creating or modifying pixel art characters or objects for video games is sometimes called spriting,
+                    a term that arose from the hobbyist community. The term likely came from the term sprite, a term
+                    used in computer graphics to describe a two-dimensional bitmap that is used in tandem with other
+                    bitmaps to construct a larger scene.</p>
+                <div class="d-flex justify-content-center mb-3"> <button [routerLink]="['/gallery']" type="button"
+                        class="btn btn-warning"><i class="fas fa-arrow-circle-right"></i> Gallery
+
+                    </button></div>
+            </div>
+            <div class=" col-md-5 col-sm-12">
+                <img class="img-fluid pic" src="../../assets/Jaebum-Joo.jpg" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+    <div  class="section"  > 
+        <div *ngIf="data==true ; else noData" >
+            <span  class="text small-text">Top Works</span>
+            <carousel style="height:100vh;position:absolute" [lightDOM]=true [dots]=true [counter]=true
+                [cellsToShow]=1>
+                <div *ngFor="let p of posts" class="carousel-cell">
+                    <img src="../../assets/uploads/{{p.file}}">
+                </div>
+            </carousel>
+        </div>
+        <ng-template #noData>
+            
+              <div class="d-flex justify-content-center">
+                  <img style="width:340px" src="../../assets/PngItem_927175.png" alt="">
+              </div>
+              <div class="d-flex justify-content-center">
+                 <p id='noTopWorks'>No Top Works</p>
+            </div>
+           
+        </ng-template>  
+    </div>
+   
+
+    <div class="section">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 ">
+                <img class="img-fluid pic ml-md-5" src="../../assets/img1.png" alt="" srcset="">
+            </div>
+            <div style="margin-top:100px" class="col-md-7 col-sm-12">
+                <p class="text-center text text-right">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
+                    mollitia provident placeat quaerat, nihil alias libero repudiandae exercitationem laborum eos sequi
+                    impedit nisi debitis autem numquam eligendi natus saepe iure?Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Non, mollitia provident placeat quaerat, nihil alias libero repudiandae
+                    exercitationem laborum eos sequi impedit nisi debitis autem numquam eligendi natus saepe iure?</p>
+
+            </div>
+        </div>
+    </div>

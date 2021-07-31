@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+img{
+    width:380px;
+}
+div{
+    font-family:'Abril Fatface', Times, serif ;
+    color:white
+}
+.text{
+    font-family :'Raleway'
+}
+.text-title{
+    font-family :'Raleway';
+    font-weight: bold;
+}
+.text-user{
+    cursor: pointer;
+    color:rgb(198, 198, 226)
+}

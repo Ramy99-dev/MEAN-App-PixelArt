@@ -1,0 +1,78 @@
+@import '~fullpage.js/dist/fullpage.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+#particles{
+    position: absolute;
+    z-index: 22222;
+    
+}
+
+h1{
+    font-family:'Abril Fatface', Times, serif ;
+    font-size: 30px;
+    text-align: center;
+    color:white;
+}
+section{
+    position: relative;
+    font-family: ;
+}
+.s1{
+    background-image: url('../../assets/cover.jpg');
+    background-size: cover;
+    position: relative;
+}
+.s21{
+    background-image: url('https://images.alphacoders.com/860/thumb-1920-860193.png');
+    background-size: cover; 
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.text{
+    color:white;
+    font-family:'Abril Fatface', Times, serif ;
+    font-size: 30px;
+    margin-left:30px
+}
+
+.text-right{
+    margin-right:30px
+}
+.pic{
+    width:700px;
+    margin-top:85px;
+}
+
+.small-text{
+    
+    position: absolute;
+    top:0px;
+    z-index: 9999;
+}
+.btn{
+    border-radius: 12px;
+}
+
+@media screen and (max-width: 1200px) {
+    .s21{
+        height:100vw;
+        background-size: contain;
+        background-repeat:no-repeat;
+        background-position:center;
+    }
+    .small-text{
+        top:160px;
+    }
+    .text{
+        font-size: 20px;;
+    }
+  }
+
+#noTopWorks{
+    color:white;
+    font-family:'Raleway';
+    font-weight: bold;
+    margin-top: 20px;
+}
+

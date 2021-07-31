@@ -1,0 +1,174 @@
+<another-nav-bar></another-nav-bar>
+
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img"  >
+                    <div *ngIf="user?.img!=null; else noProfileImg">
+                        <img src="../../assets/uploads/profile/{{user?.img}}" alt="">
+                    </div>
+                    <ng-template #noProfileImg> 
+                    <div *ngIf="user?.gender=='M'">
+                        <img src="../../assets/male.jpg" alt=""/>
+                    </div>
+                    <div *ngIf="user?.gender=='F'">
+                        <img src="../../assets/female.jpg" alt=""/>
+                    </div>
+                    </ng-template>
+                    
+                    <div *ngIf="currentUser"  class="file btn btn-lg btn-primary">
+                        <form [formGroup]="profileForm">
+                        Change Photo
+                            <input  (input)="changeImg($event)" type="file" name="file"  formControlName="img"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                            <h5>
+                                {{user?.firstName}} {{user?.lastName}} 
+                            </h5><p class="proile-rating">Followers : <span>{{number_followers}}</span></p>
+                            <div *ngIf="!currentUser">
+                           <div *ngIf='following==true ; else unfollowing'>
+                            <button (click)='unfollow()' class="btn btn-primary"><i style="opacity:0.5" class="fas fa-user-plus mr-1"></i>Unfollow</button>
+                           </div>
+                            <ng-template #unfollowing>
+                                <button (click)='follow()' class="btn btn-primary"><i class="fas fa-user-plus mr-1"></i>Follow</button>
+                            </ng-template>
+                          </div>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div *ngIf="currentUser ; else notCurrent">
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                </div>
+                <ng-template #notCurrent>
+                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Send Message"/>
+                </ng-template>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 ">
+                
+                
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                
+                       
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{user?.email}}</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Gender</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                        <div *ngIf="user?.gender=='M'  ;else other_gender">
+                                            <p>
+                                                     Male
+                                            </p>
+                                        </div>
+                                        <ng-template #other_gender>
+                                            <p>
+                                                Female
+                                            </p>
+                                        </ng-template>
+                                        
+                                    </div>
+                                
+                                </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experience</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>10$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Projects</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>English Level</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Availability</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 months</p>
+                                    </div>
+                                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br/>
+                                <p>Your detail description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>  
+    <div class="row">
+
+      
+        <div *ngFor="let post of posts" class="col-lg-3 col-md-4 col-xs-6 thumb mr-3">
+            
+                <img  (click)='getDetails(post._id)'   src="../../assets/uploads/{{post.file}}" class=" img-fluid "  alt="">
+                
+              
+   
+       
+        </div>
+    </div>
+    <div class="container">
+        <nav>
+          <ul *ngIf="number_page>1" class="pagination">
+            <li class="page-item" *ngFor="let item of [].constructor(number_page);let i=index ">
+              <a (click)="changePage(i+1)" class="page-link" href="#">{{i+1}}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+         
+</div>
+

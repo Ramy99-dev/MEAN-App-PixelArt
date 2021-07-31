@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+  
+  #demo {
+    height:100%;
+    position:relative;
+    overflow:hidden;
+  }
+  
+  
+  .green{
+    background-color:#6fb936;
+  }
+          .thumb{
+              margin-bottom: 30px;
+          }
+          
+          .page-top{
+              margin-top:85px;
+          }
+  
+     
+    
+   
+  
+img{
+  width:100vw;
+  
+  vertical-align: center;
+  
+}
+p{
+  position:absolute;
+  top:300px;
+}
+.card-text{
+  font-family: 'Raleway';
+  font-weight: bold;
+}
+
