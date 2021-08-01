@@ -1,8 +1,8 @@
 # MEAN-app-PixelArt
 
-Pixel art is a web application that allows users to share their pixel art with other users in the form of images(jpg,png,jpeg ) or gifs .
+Pixel art is a web application that allows users to share their pixel art with other users in the form of images(jpg, png ,jpeg ) or gifs .
 
-Technology use : 
+Technology used : 
 ***Back End :***
 - NodeJS .
 - ExpressJs .
